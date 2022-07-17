@@ -25,27 +25,41 @@
             </Viewbox>
         </Border>
         <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="0.5" CornerRadius="0">
-        <Grid x:Name="SecondMainWindowGrid"  Background="AliceBlue" ShowGridLines="True">
-            <!--Playing Pool-->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" x:Name="Column0"></ColumnDefinition>
-                <ColumnDefinition Width="*" x:Name="Column1"></ColumnDefinition>
-                <ColumnDefinition Width="*" x:Name="Column2"></ColumnDefinition>
-                <ColumnDefinition Width="*" x:Name="Column3"></ColumnDefinition>
-                <ColumnDefinition Width="*" x:Name="Column4"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" x:Name="Row0"></RowDefinition>
-                <RowDefinition Height="*" x:Name="Row1"></RowDefinition>
-                <RowDefinition Height="*" x:Name="Row2"></RowDefinition>
-                <RowDefinition Height="*" x:Name="Row3"></RowDefinition>
-                <RowDefinition Height="*" x:Name="Row4"></RowDefinition>
-            </Grid.RowDefinitions>
-        </Grid>
+            <Grid x:Name="SecondMainWindowGrid"  Background="AliceBlue" ShowGridLines="True">
+                <!--Playing Pool-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" x:Name="Column0"></ColumnDefinition>
+                    <ColumnDefinition Width="*" x:Name="Column1"></ColumnDefinition>
+                    <ColumnDefinition Width="*" x:Name="Column2"></ColumnDefinition>
+                    <ColumnDefinition Width="*" x:Name="Column3"></ColumnDefinition>
+                    <ColumnDefinition Width="*" x:Name="Column4"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" x:Name="Row0"></RowDefinition>
+                    <RowDefinition Height="*" x:Name="Row1"></RowDefinition>
+                    <RowDefinition Height="*" x:Name="Row2"></RowDefinition>
+                    <RowDefinition Height="*" x:Name="Row3"></RowDefinition>
+                    <RowDefinition Height="*" x:Name="Row4"></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
         </Border>
         <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="0.5">
             <Grid x:Name="MainInfoGrid" Background="FloralWhite">
                 <!--Info Grid-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.46*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="283*"></RowDefinition>
+                    <RowDefinition Height="93*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Viewbox Stretch="Uniform" Grid.Column="0" Grid.Row="1" Margin="5,5,5,5">
+                    <Button x:Name="SettingsButton" Content="Settings" Background="LavenderBlush" BorderBrush="Lavender" ClickMode="Press" Click="SettingsButton_Click"></Button>
+                </Viewbox>
+                <Viewbox Stretch="Uniform" Grid.Column="1" Grid.Row="1" Margin="5,5,5,5">
+                    <Button x:Name="InfoButton" Content="Info Window" Background="LavenderBlush" BorderBrush="Lavender" ClickMode="Press" Click="InfoButton_Click" ></Button>
+                </Viewbox>
             </Grid>
         </Border>
     </Grid>
