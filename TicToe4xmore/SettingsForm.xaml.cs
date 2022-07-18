@@ -44,12 +44,12 @@ namespace TicToe4xmore
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
-            string  strcontent = (string)((Button)e.OriginalSource).Content;
-            if (strcontent == "ENG") { MainSettings.Default.Language = "ENG"; MainSettings.Default.Save(); }
-            else if (strcontent == "UA") { MainSettings.Default.Language = "UA"; MainSettings.Default.Save(); }
-            else if (strcontent == "3x3") { MainSettings.Default.Size = "3x3"; MainSettings.Default.Save(); CreateForm(); }
-            else if (strcontent == "4x4") { MainSettings.Default.Size = "4x4"; MainSettings.Default.Save(); CreateForm(); }
-            else if (strcontent == "5x5") { MainSettings.Default.Size = "5x5"; MainSettings.Default.Save(); CreateForm(); }
+            string   strcontent = (string)((Button)e.OriginalSource).Content;
+            if (     strcontent == "ENG") { SettingsClass.PublicLanguage = "ENG";  }
+            else if (strcontent == "UA") { SettingsClass.PublicLanguage = "UA";  }
+            else if (strcontent == "3x3") { SettingsClass.PublicSize = "3x3";  CreateForm(); }
+            else if (strcontent == "4x4") { SettingsClass.PublicSize = "4x4";  CreateForm(); }
+            else if (strcontent == "5x5") { SettingsClass.PublicSize = "5x5";  CreateForm(); }
             else { }
             void CreateForm()
             {
@@ -62,12 +62,12 @@ namespace TicToe4xmore
         }
         private void Debug_Click(object sender, RoutedEventArgs e)
         {
-            this.DebugLabel.Content = "Language: " + MainSettings.Default.Language + "\r\n" + "Size: " + MainSettings.Default.Size;
+            this.DebugLabel.Content = "Language: " + SettingsClass.PublicLanguage + "\r\n" + "Size: " + SettingsClass.PublicSize;
         }
         
         private void ColorTimer_Tick(object sender, EventArgs e)
         {
-            if (MainSettings.Default.Language == "UA")
+            if (SettingsClass.PublicLanguage == "UA")
             {
                 var converter = new System.Windows.Media.BrushConverter();
                 var brush = (Brush)converter.ConvertFromString("#F0F8FF"); //AliceBlue
@@ -75,7 +75,7 @@ namespace TicToe4xmore
                 brush = (Brush)converter.ConvertFromString("#C1C1C1"); //LightSteelBlue
                 Language_UA_Settings.Background = brush;
             }
-            else if (MainSettings.Default.Language == "ENG")
+            else if (SettingsClass.PublicLanguage == "ENG")
             {
                 var converter = new System.Windows.Media.BrushConverter();
                 var brush = (Brush)converter.ConvertFromString("#C1C1C1"); //LightSteelBlue
