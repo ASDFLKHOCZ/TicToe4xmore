@@ -26,7 +26,7 @@ namespace TicToe4xmore
             InitializeComponent();
             DispatcherTimer ColorTimer = new DispatcherTimer();
             ColorTimer.Tick += ColorTimer_Tick;
-            ColorTimer.Interval =System.TimeSpan.FromMilliseconds(500);
+            ColorTimer.Interval =System.TimeSpan.FromMilliseconds(200);
             ColorTimer.Start();
                                                                                                                  
             foreach (UIElement el in SettingsGrid.Children)

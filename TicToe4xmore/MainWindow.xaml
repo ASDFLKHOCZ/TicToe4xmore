@@ -51,14 +51,22 @@
                     <ColumnDefinition Width="1.46*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="283*"></RowDefinition>
-                    <RowDefinition Height="93*"></RowDefinition>
+                    <RowDefinition Height="110*"></RowDefinition>
+                    <RowDefinition Height="213*"></RowDefinition>
+                    <RowDefinition Height="53*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Viewbox Stretch="Uniform" Grid.Column="0" Grid.Row="1" Margin="5,5,5,5">
+                <Viewbox Stretch="Uniform" Grid.Column="0" Grid.Row="2" Margin="5,5,5,5">
                     <Button x:Name="SettingsButton" Content="Settings" Background="LavenderBlush" BorderBrush="Lavender" ClickMode="Press" Click="SettingsButton_Click"></Button>
                 </Viewbox>
-                <Viewbox Stretch="Uniform" Grid.Column="1" Grid.Row="1" Margin="5,5,5,5">
+                <Viewbox Stretch="Uniform" Grid.Column="1" Grid.Row="2" Margin="5,5,5,5">
                     <Button x:Name="InfoButton" Content="Info Window" Background="LavenderBlush" BorderBrush="Lavender" ClickMode="Press" Click="InfoButton_Click" ></Button>
+                </Viewbox>
+                <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Stretch="Uniform" >
+                    <Border BorderBrush="BlanchedAlmond" BorderThickness="1">
+                        <TextBlock x:Name="TurnTextBox" Text="Turn: X">
+                            
+                        </TextBlock>
+                    </Border>
                 </Viewbox>
             </Grid>
         </Border>
