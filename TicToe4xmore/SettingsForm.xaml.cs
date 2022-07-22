@@ -70,17 +70,17 @@ namespace TicToe4xmore
             if (SettingsClass.PublicLanguage == "UA")
             {
                 var converter = new System.Windows.Media.BrushConverter();
-                var brush = (Brush)converter.ConvertFromString("#F0F8FF"); //AliceBlue
+                var brush = (System.Windows.Media.Brush)converter.ConvertFromString("#F0F8FF"); //AliceBlue
                 Language_ENG_Settings.Background = brush;
-                brush = (Brush)converter.ConvertFromString("#C1C1C1"); //LightSteelBlue
+                brush = (System.Windows.Media.Brush)converter.ConvertFromString("#C1C1C1"); //LightSteelBlue
                 Language_UA_Settings.Background = brush;
             }
             else if (SettingsClass.PublicLanguage == "ENG")
             {
                 var converter = new System.Windows.Media.BrushConverter();
-                var brush = (Brush)converter.ConvertFromString("#C1C1C1"); //LightSteelBlue
+                var brush = (System.Windows.Media.Brush)converter.ConvertFromString("#C1C1C1"); //LightSteelBlue
                 Language_ENG_Settings.Background = brush;
-                brush = (Brush)converter.ConvertFromString("#F0F8FF"); //AliceBlue
+                brush = (System.Windows.Media.Brush)converter.ConvertFromString("#F0F8FF"); //AliceBlue
                 Language_UA_Settings.Background = brush;
             }
             //LightSteelBlue

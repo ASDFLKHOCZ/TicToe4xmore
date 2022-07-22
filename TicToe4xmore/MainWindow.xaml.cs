@@ -27,8 +27,9 @@ namespace TicToe4xmore
     public partial class MainWindow : Window
     {
         
-        void CreateButtons()
+        void CreateButtons(int mode)
         {   
+            if(mode ==1){
                 for (int i = 0; i < 5; i++)
                 {
                     for(int j = 0; j < 5; j++)
@@ -42,6 +43,11 @@ namespace TicToe4xmore
                         SecondMainWindowGrid.Children.Add(buttonlist[i, j]);
                     }
                 }
+            }
+            else if (mode ==2) {
+                Array.Clear(buttonlist,0,buttonlist.Length);
+                Array.Clear(btnlist,0,btnlist.Length);
+            }
             
             
 
@@ -67,22 +73,24 @@ namespace TicToe4xmore
             if (SettingsClass.PublicSize == "3x3") { MainSize = 3; Column4.Width = new GridLength(0); Column3.Width = new GridLength(0);Row4.Height = new GridLength(0);Row3.Height = new GridLength(0); }
             else if (SettingsClass.PublicSize == "4x4") { MainSize = 4;Column4.Width = new GridLength(0); Row4.Height = new GridLength(0); }
             else if (SettingsClass.PublicSize == "5x5") { MainSize = 5; }
-            CreateButtons();
+            CreateButtons(1);
             
         }
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            SettingsForm settingform = new SettingsForm();
-            settingform.Show();
-            SecondMainWindowGrid.Children.Clear();
-
-            RestartMyApp();
+          //  SettingsForm settingform = new SettingsForm();
+          //  settingform.Show();
+          //  SecondMainWindowGrid.Children.Clear();
+           CreateButtons(2);
+            System.Windows.Forms.Application.Restart();
+           Close();
+           // RestartMyApp();
         }
         private void RestartMyApp([CallerMemberName] string callerName = "")
         {
             Application.Current.Exit += (s, e) =>
             {
-                const string allowedCallingMethod = "ButtonBase_OnClick"; // todo: Set your calling method here
+                const string allowedCallingMethod = "SettingsButton_Click"; // todo: Set your calling method here
 
                 if (callerName == allowedCallingMethod)
                 {
