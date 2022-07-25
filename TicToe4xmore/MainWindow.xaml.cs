@@ -27,27 +27,42 @@ namespace TicToe4xmore
     public partial class MainWindow : Window
     {
         
-        void CreateButtons(int mode)
-        {   
-            if(mode ==1){
-                for (int i = 0; i < 5; i++)
-                {
-                    for(int j = 0; j < 5; j++)
+        void LButtonsAction(int mode)
+        {
+            switch (mode)
+            {
+                case 0:
+                    for (int i = 0; i < 5; i++)
                     {
-                        buttonlist[i,j] = new Button();
-                        Grid.SetRow(buttonlist[i, j], i);
-                        Grid.SetColumn(buttonlist[i, j], j);
-                        buttonlist[i, j].Click += PlayingPool_Click;
-                        buttonlist[i, j].Content = Convert.ToString(j)+" "+ Convert.ToString(i);
-                        buttonlist[i, j].IsEnabled = true;
-                        SecondMainWindowGrid.Children.Add(buttonlist[i, j]);
+                        for (int j = 0; j < 5; j++)
+                        {
+                            buttonlist[i, j] = new Button();
+                            Grid.SetRow(buttonlist[i, j], i);
+                            Grid.SetColumn(buttonlist[i, j], j);
+                            buttonlist[i, j].Click += PlayingPool_Click;
+                            buttonlist[i, j].Content = Convert.ToString(j) + " " + Convert.ToString(i);
+                            buttonlist[i, j].IsEnabled = true;
+                            SecondMainWindowGrid.Children.Add(buttonlist[i, j]);
+                        }
                     }
-                }
+                    break;
+                case 1:
+                    Array.Clear(buttonlist, 0, buttonlist.Length);
+                    Array.Clear(btnlist, 0, btnlist.Length);
+                    break;
+                case 2:
+                    for(int i = 0; i < 5; i++)
+                    {
+                        for(int j = 0;j<5;j++)
+                        {
+                            buttonlist[i, j].IsEnabled = false;
+                        }
+                    }
+                    break;
+                default:
+                    break;
             }
-            else if (mode ==2) {
-                Array.Clear(buttonlist,0,buttonlist.Length);
-                Array.Clear(btnlist,0,btnlist.Length);
-            }
+           
             
             
 
@@ -70,18 +85,28 @@ namespace TicToe4xmore
             else if (languageindex==2) { testText = "Language: " + SettingsClass.PublicLanguage + "\r\n" + "Size: " + SettingsClass.PublicSize; SettingsButton.Content = "Settings"; InfoButton.Content = "Information"; TurnTextBox.Text = "Turn: X"; }
             this.TestTextBox.Text = testText;
             int MainSize = 0;
-            if (SettingsClass.PublicSize == "3x3") { MainSize = 3; Column4.Width = new GridLength(0); Column3.Width = new GridLength(0);Row4.Height = new GridLength(0);Row3.Height = new GridLength(0); }
-            else if (SettingsClass.PublicSize == "4x4") { MainSize = 4;Column4.Width = new GridLength(0); Row4.Height = new GridLength(0); }
-            else if (SettingsClass.PublicSize == "5x5") { MainSize = 5; }
-            CreateButtons(1);
-            
+            switch (SettingsClass.PublicSize)
+            {
+                case "3x3":
+                    MainSize = 3; Column4.Width = new GridLength(0); Column3.Width = new GridLength(0); Row4.Height = new GridLength(0); Row3.Height = new GridLength(0);
+                    break;
+                case "4x4":
+                    MainSize = 4; Column4.Width = new GridLength(0); Row4.Height = new GridLength(0);
+                    break;
+                case "5x5":
+                    MainSize = 5;
+                    break;
+            }
+            LButtonsAction(0);
+
+
         }
         private void SettingsButton_Click(object sender, EventArgs e)
         {
           //  SettingsForm settingform = new SettingsForm();
           //  settingform.Show();
           //  SecondMainWindowGrid.Children.Clear();
-           CreateButtons(2);
+           LButtonsAction(1);
             System.Windows.Forms.Application.Restart();
            Close();
            // RestartMyApp();
@@ -147,7 +172,12 @@ namespace TicToe4xmore
         {
             int[,] listofbtn = btnlist;
             int turn = turn_status;
-            if(intsize == 3)
+            if(ClassLib.GameLogic(btnlist,turn_status)) {
+                if (turn_status == 2) { EndGame("winO"); win_status = 2;LButtonsAction(2); }
+                else if (turn_status == 1) { EndGame("winX"); win_status = 1; LButtonsAction(2); }
+                else { EndGame("Error"); }
+            }
+/*            if(intsize == 3)
             {
                 if ((btnlist[0, 0] == turn & btnlist[0, 1] == turn & btnlist[0, 2] == turn)
                     ||(btnlist[1, 0] == turn & btnlist[1, 1] == turn & btnlist[1, 2] == turn)
@@ -213,7 +243,7 @@ namespace TicToe4xmore
                     else if (turn_status == 1) { EndGame("winX"); win_status = 1; }
                     else { EndGame("Error"); }
                 }
-            }
+            }*/
             
              if (scoregame == intsize*intsize && win_status==0)
             {

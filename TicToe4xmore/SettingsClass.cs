@@ -8,7 +8,7 @@ namespace TicToe4xmore
 {
     public class SettingsClass
     {
-        public static string PublicLanguage;
+        public static string PublicLanguage="ENG";
         public static string PublicSize;
     }
 }
