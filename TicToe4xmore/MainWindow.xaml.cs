@@ -130,14 +130,15 @@ namespace TicToe4xmore
             int languageindex = languageid(); //1=ua, 2=eng
             string captiontext = languageindex == 1 ? "Інформація" : languageindex == 2 ? "Information" : "Error/Помилка";
             string entertext = "";
-            for (int i = 0; i < 5; i++)
+            /*for (int i = 0; i < 5; i++)
             {
                 for(int j = 0; j < 5; j++)
                 {
                     entertext += btnlist[i,j] + " ";
                 }
                 entertext += "\r\n";
-            }
+            }*/
+            entertext += ClassLib.LanguageLogic("infobox");
             //string entertext = languageindex == 1 ? "Ця игра була створена для двох гравців." : languageindex == 2 ? "This game was created for 2 players." : "This language not registered.\r\nЦя мова не зареєстрована.";
             MessageBox.Show(entertext, captiontext);
         }

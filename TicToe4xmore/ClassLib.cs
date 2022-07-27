@@ -8,13 +8,23 @@ namespace TicToe4xmore
 {
     public static class ClassLib
     {
-        public static string LanguageLogic (string LanguageMode)
+        public static string LanguageLogic (string LanguageContent)
         {
             switch (SettingsClass.PublicLanguage)
             {
                 case "ENG":
+                    switch (LanguageContent)
+                    {
+                        case "infobox": return "This Game was created fF2P. \r\nRule: take 3 identical symbols in a row for win.";
+                            break;
+                    }
                     break;
                 case "UA":
+                    switch (LanguageContent)
+                    {
+                        case "infobox": return "Ця гра створенна для безплатного використання. \r\nПравила: взяти 3 однакових символів для перемога.";
+                            break;
+                    }
                     break;
                 default:
                     return "";

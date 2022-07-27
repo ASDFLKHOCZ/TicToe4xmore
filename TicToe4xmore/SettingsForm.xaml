@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicToe4xmore"
         mc:Ignorable="d"
-        Title="Starting Settings" Height="228" Width="497" WindowStartupLocation="CenterScreen" Visibility="Visible" WindowStyle="ToolWindow">
+        Title="Starting Settings" Height="228" Width="497" WindowStartupLocation="CenterScreen" Visibility="Visible" WindowStyle="ToolWindow" Topmost="True">
+
     <Grid x:Name="SettingsGrid" Background="BlueViolet">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -15,18 +16,22 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="42*"></RowDefinition>
+            <RowDefinition Height="28*"></RowDefinition>
+            <RowDefinition Height="57*"></RowDefinition>
+            <RowDefinition Height="42*"></RowDefinition>
+            <RowDefinition Height="42*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label x:Name="DebugLabel" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Content="" ></Label>
-        <Button x:Name="Language_ENG_Settings" Background="AliceBlue" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Content="ENG"></Button>
-        <Button x:Name="Language_UA_Settings" Background="AliceBlue" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Content="UA"></Button>
-        <Button x:Name="Tic3Mode" Background="AliceBlue" Grid.Row="3" Grid.Column="1" Content="3x3"></Button>
-        <Button x:Name="Tic4Mode" Background="AliceBlue" Grid.Row="3" Grid.Column="2" Content="4x4"></Button>
-        <Button x:Name="Tic5Mode" Background="AliceBlue" Grid.Row="3" Grid.Column="3" Content="5x5"></Button>
-        <Button x:Name="DebugTest" Grid.Column="2" Grid.Row="4" Background="Red" Content ="Debug" Click="Debug_Click" ClickMode="Press"   ></Button>
+        <Label x:Name="DebugLabel" Grid.Row="0" Grid.ColumnSpan="5" Content="" Margin="99,0,99,0" />
+        <Button x:Name="Language_ENG_Settings" Background="AliceBlue" Grid.ColumnSpan="3" Content="ENG" Visibility="Hidden" Margin="99,42,99,0" Grid.RowSpan="2"/>
+        <Button x:Name="Language_UA_Settings" Background="AliceBlue" Grid.Column="2" Grid.ColumnSpan="3" Content="UA" Visibility="Hidden" Margin="99,42,99,0" Grid.RowSpan="2"/>
+        <Button x:Name="Tic3Mode" Background="AliceBlue" Grid.Row="3" Content="3x3" Grid.ColumnSpan="3" Margin="99,0,99,42" Grid.RowSpan="2"/>
+        <Button x:Name="Tic4Mode" Background="AliceBlue" Grid.Row="3" Grid.Column="2" Content="4x4" Margin="0,0,0,42" Grid.RowSpan="2"></Button>
+        <Button x:Name="Tic5Mode" Background="AliceBlue" Grid.Row="3" Grid.Column="2" Content="5x5" Grid.ColumnSpan="3" Margin="99,0,99,42" Grid.RowSpan="2"></Button>
+        <Button x:Name="DebugTest" Grid.Column="2" Grid.Row="4" Background="Red" Content ="Debug" Click="Debug_Click" ClickMode="Press" Visibility="Visible"   ></Button>
+        <ComboBox x:Name="LanguageComboBox" Grid.ColumnSpan="5" IsEditable="False" IsReadOnly="True" SelectionChanged="ComboBox_SelectedChange" Margin="99,42,99,0" Grid.RowSpan="2" HorizontalContentAlignment="Center">
+            <ComboBoxItem x:Name="UA_ComboBox" Content="UA"></ComboBoxItem>
+            <ComboBoxItem x:Name="ENG_ComboBox" Content="ENG"  IsSelected="True" ></ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Window>

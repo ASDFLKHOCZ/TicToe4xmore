@@ -24,10 +24,10 @@ namespace TicToe4xmore
         public SettingsForm()
         {
             InitializeComponent();
-            DispatcherTimer ColorTimer = new DispatcherTimer();
+           /* DispatcherTimer ColorTimer = new DispatcherTimer();
             ColorTimer.Tick += ColorTimer_Tick;
             ColorTimer.Interval =System.TimeSpan.FromMilliseconds(200);
-            ColorTimer.Start();
+            ColorTimer.Start();*/
                                                                                                                  
             foreach (UIElement el in SettingsGrid.Children)
             {
@@ -37,10 +37,25 @@ namespace TicToe4xmore
                     ((Button)el).Click += Button_Click;
                     
                 }
+                if (el is ComboBox)
+                {
+                    ((ComboBox)el).SelectionChanged += ComboBox_SelectedChange;
+                }
             }
+
             
         }
-        
+        private void ComboBox_SelectedChange(object sender, RoutedEventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+            ComboBoxItem selecteditem = (ComboBoxItem)comboBox.SelectedItem;
+            switch ((string)selecteditem.Content)
+            {
+                case "UA": SettingsClass.PublicLanguage = "UA"; break;
+                case "ENG": SettingsClass.PublicLanguage = "ENG"; break;
+                default: SettingsClass.PublicLanguage = "ENG"; break;
+            }
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
