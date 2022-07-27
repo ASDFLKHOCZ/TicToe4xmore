@@ -40,7 +40,7 @@ namespace TicToe4xmore
                             Grid.SetRow(buttonlist[i, j], i);
                             Grid.SetColumn(buttonlist[i, j], j);
                             buttonlist[i, j].Click += PlayingPool_Click;
-                            buttonlist[i, j].Content = Convert.ToString(j) + " " + Convert.ToString(i);
+                            buttonlist[i, j].Content =""; //Convert.ToString(j) + " " + Convert.ToString(i);
                             buttonlist[i, j].IsEnabled = true;
                             SecondMainWindowGrid.Children.Add(buttonlist[i, j]);
                         }
